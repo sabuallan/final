@@ -1,12 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App.jsx';
-import './index.css';
-import Routes from './Routes.jsx';
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom' // Import BrowserRouter
+import App from './App'
+import CartProvider from './components/CartContext' // Import CartProvider
+import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-    <Routes />
-  </React.StrictMode>
-);
+const root = document.getElementById('root')
+const app = createRoot(root)
+
+app.render(
+  <BrowserRouter>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </BrowserRouter>
+)

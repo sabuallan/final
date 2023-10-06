@@ -1,13 +1,11 @@
-// ProductDetail.js
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import CartContext from './CartContext'; // Import your cart context
+import CartContext from './CartContext';
 
 const ProductDetail = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
 
-  // Simulate fetching product data based on productId
   useEffect(() => {
     const fetchProductData = async () => {
       try {
