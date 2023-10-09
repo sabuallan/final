@@ -19,7 +19,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link to="/Cart.jsx" className="nav-link">
+          <Link to="/Cart" className="nav-link">
             Cart
           </Link>
         </li>

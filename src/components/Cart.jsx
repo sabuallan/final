@@ -1,13 +1,20 @@
-import { useContext } from 'react';
-import { CartContext } from './CartContext'; 
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
 const Cart = () => {
-  // Access the cart state from context or state management library
   const { cartItems } = useContext(CartContext);
+  const Navigate = useNavigate();
 
-  // Function to calculate the total cost of items in the cart
-  const calculateTotal = (items) => {
-    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+  const handleProceedToCheckout = () => {
+    Navigate('/Checkout');
+  };
+
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
   };
 
   return (
@@ -17,9 +24,15 @@ const Cart = () => {
         <p>Your cart is empty.</p>
       ) : (
         <>
-          {/* Render cart items here */}
-          <p>Total: ${calculateTotal(cartItems)}</p>
-          <button>Proceed to Checkout</button>
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.id}>
+                {item.title} - ${item.price} (Quantity: {item.quantity})
+              </li>
+            ))}
+          </ul>
+          <p>Total: ${calculateTotal()}</p>
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </>
       )}
     </div>

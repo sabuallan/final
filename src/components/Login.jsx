@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../login.css'; // Import the CSS file
 
 const Login = () => {
   // State to store user credentials
@@ -31,37 +32,43 @@ const Login = () => {
   };
 
   return (
-    <div>
-      {authenticated ? (
-        <p>Welcome, {credentials.username}! You are now logged in.</p>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          <h2>Login</h2>
-          <div>
-            <label htmlFor="username">Username:</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              value={credentials.username}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={credentials.password}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div>
-            <button type="submit">Login</button>
-          </div>
+    <div className="login-container">
+      <div className="login-center">
+        <form className="login-form" onSubmit={handleSubmit}>
+          {authenticated ? (
+            <p className="welcome-message">Welcome, {credentials.username}! You are now logged in.</p>
+          ) : (
+            <>
+              <h2 className="login-heading">Login</h2>
+              <div>
+                <label htmlFor="username">Username:</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={credentials.username}
+                  onChange={handleInputChange}
+                  className="login-input"
+                />
+              </div>
+              <div>
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={credentials.password}
+                  onChange={handleInputChange}
+                  className="login-input"
+                />
+              </div>
+              <div>
+                <button type="submit" className="login-button">Login</button>
+              </div>
+            </>
+          )}
         </form>
-      )}
+      </div>
     </div>
   );
 };

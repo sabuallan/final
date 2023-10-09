@@ -8,39 +8,37 @@ import CartProvider from "./components/CartProvider.jsx";
 import Login from "./components/Login.jsx";
 
 const App = () => {
-  
-    return (
+  return (
     <CartProvider>
-    <div>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          exact
-          element={<ProductListing />}
-        />
-        <Route
-          path="/product/:productId"
-          element={<ProductDetail />}
-        />
-        <Route
-          path="./components/Cart.jsx"
-          element={<Cart />}
-        />
-        <Route
-          path="./components/Checkout.jsx"
-          element={<Checkout />}
-        />
-        <Route
-          path="./components/Login.jsx"
-          element={<Login />}
+      <div>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/product/:productId"
+            element={<ProductDetail />}
           />
-        {/* Add more routes */}
-      </Routes>
-    </div>
+          <Route
+            path="/Cart"
+            element={<Cart />}
+          />
+          <Route
+            path="/checkout"
+            element={<Checkout />}
+          />
+          <Route
+            path="/Login"
+            element={<Login />}
+          />
+          <Route
+            path="/"
+            exact
+            element={<ProductListing />}
+          />
+          {/* Add more routes */}
+        </Routes>
+      </div>
     </CartProvider>
-    );
-  
-}
+  );
+};
 
 export default App;

@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { CartContext } from './CartContext.jsx';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { CartContext } from "./CartContext.jsx";
 
 const CartProvider = ({ children }) => {
-  // State to store the cart items
   const [cartItems, setCartItems] = useState([]);
 
   // Function to add an item to the cart
