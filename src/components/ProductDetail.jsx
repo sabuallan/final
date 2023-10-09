@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import CartContext from './CartContext';
+import { CartContext, useCart } from "./CartContext";
+
 
 const ProductDetail = () => {
   const { productId } = useParams();

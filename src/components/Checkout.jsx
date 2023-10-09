@@ -19,8 +19,7 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Here, you can implement logic for order processing, confirmation, and clearing the cart.
-    // For simplicity, we'll just log the order details.
+    // For simplicity,just loggging the order details.
     console.log('Order Details:')
     console.log('Name:', formData.name)
     console.log('Email:', formData.email)
