@@ -127,3 +127,20 @@ button:focus-visible {
     width: 50%; /* 2 cards in a row on smaller screens */
   }
 }
+.filter-dropdown {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+}
+
+.filter-dropdown:hover {
+  border-color: #007bff;
+}
+
+.filter-dropdown:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

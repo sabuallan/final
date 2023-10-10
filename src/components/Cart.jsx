@@ -3,18 +3,24 @@ import { useNavigate } from "react-router-dom";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, removeFromCart } = useContext(CartContext);
   const Navigate = useNavigate();
 
   const handleProceedToCheckout = () => {
-    Navigate('/Checkout');
+    Navigate('/checkout');
   };
 
-  const calculateTotal = () => {
-    return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    );
+  const calculateTotal = (items) => {
+    return items.reduce((total, item) => {
+      if (item.price && item.quantity) {
+        return total + item.price * item.quantity;
+      }
+      return total;
+    }, 0);
+  };
+
+  const handleRemoveFromCart = (itemId) => {
+    removeFromCart(itemId);
   };
 
   return (
@@ -28,10 +34,11 @@ const Cart = () => {
             {cartItems.map((item) => (
               <li key={item.id}>
                 {item.title} - ${item.price} (Quantity: {item.quantity})
+                <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
               </li>
             ))}
           </ul>
-          <p>Total: ${calculateTotal()}</p>
+          <p>Total: ${calculateTotal(cartItems)}</p>
           <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </>
       )}

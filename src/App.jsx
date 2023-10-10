@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ProductListing from "./components/ProductListing.jsx";
 import ProductDetail from "./components/ProductDetail.jsx";
 import Cart from "./components/Cart.jsx";
@@ -6,6 +6,12 @@ import Checkout from "./components/Checkout.jsx";
 import Navbar from "./components/Navbar.jsx";
 import CartProvider from "./components/CartProvider.jsx";
 import Login from "./components/Login.jsx";
+
+const isAuthenticated = () => {
+  // Check if the user is authenticated by verifying the token
+  const authToken = localStorage.getItem('authToken');
+  return !!authToken; // Return true if a token exists, false otherwise.
+};
 
 const App = () => {
   return (
@@ -18,15 +24,33 @@ const App = () => {
             element={<ProductDetail />}
           />
           <Route
-            path="/Cart"
-            element={<Cart />}
+            path="/cart"
+            element={
+              isAuthenticated() ? (
+                <Cart />
+              ) : (
+                <Navigate
+                  to="/login"
+                  replace
+                />
+              )
+            }
           />
           <Route
             path="/checkout"
-            element={<Checkout />}
+            element={
+              isAuthenticated() ? (
+                <Checkout />
+              ) : (
+                <Navigate
+                  to="/login"
+                  replace
+                />
+              )
+            }
           />
           <Route
-            path="/Login"
+            path="/login"
             element={<Login />}
           />
           <Route

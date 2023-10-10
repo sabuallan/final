@@ -1,37 +1,41 @@
-import { useState } from 'react'
-import { useCart } from './CartContext'
+import { useState } from 'react';
+import { useCart } from './CartContext';
 
 const Checkout = () => {
-  const { cartItems } = useCart()
+  const { cartItems } = useCart();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    address: ''
-  })
+    address: '',
+  });
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    // For simplicity,just loggging the order details.
-    console.log('Order Details:')
-    console.log('Name:', formData.name)
-    console.log('Email:', formData.email)
-    console.log('Address:', formData.address)
-    console.log('Cart Items:', cartItems)
+    e.preventDefault();
+    // For simplicity, just logging the order details.
+    console.log('Order Details:');
+    console.log('Name:', formData.name);
+    console.log('Email:', formData.email);
+    console.log('Address:', formData.address);
+    console.log('Cart Items:', cartItems);
 
     setFormData({
       name: '',
       email: '',
-      address: ''
-    })
-  }
+      address: '',
+    });
+
+    // Set the orderPlaced state to true
+    setOrderPlaced(true);
+  };
 
   return (
     <div className="checkout">
@@ -71,8 +75,13 @@ const Checkout = () => {
         </div>
         <button type="submit">Place Order</button>
       </form>
+      {orderPlaced && (
+        <div className="success-message">
+          <p>Your order has been placed successfully!</p>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Checkout
+export default Checkout;
