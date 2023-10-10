@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../login.css"; // Import the CSS file
+import "../login.css";
 
 const Login = () => {
   // State to store user credentials

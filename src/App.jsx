@@ -9,8 +9,8 @@ import Login from "./components/Login.jsx";
 
 const isAuthenticated = () => {
   // Check if the user is authenticated by verifying the token
-  const authToken = localStorage.getItem('authToken');
-  return !!authToken; // Return true if a token exists, false otherwise.
+  const authToken = localStorage.getItem("authToken");
+  return !!authToken;
 };
 
 const App = () => {
@@ -58,7 +58,6 @@ const App = () => {
             exact
             element={<ProductListing />}
           />
-          {/* Add more routes */}
         </Routes>
       </div>
     </CartProvider>

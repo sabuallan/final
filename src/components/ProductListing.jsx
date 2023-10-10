@@ -29,9 +29,10 @@ const ProductListing = () => {
   }, []);
 
   const filterAndSortProducts = (data) => {
-    const filtered = filterOptions.category === "all"
-      ? data
-      : data.filter((product) => product.category === filterOptions.category);
+    const filtered =
+      filterOptions.category === "all"
+        ? data
+        : data.filter((product) => product.category === filterOptions.category);
 
     const sorted = filtered.slice().sort((a, b) => {
       if (filterOptions.sortBy === "price-asc") {
@@ -93,7 +94,6 @@ const ProductListing = () => {
         >
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
-          {/* Add other sorting options */}
         </select>
       </div>
 
@@ -110,7 +110,9 @@ const ProductListing = () => {
             <h3>{product.title}</h3>
             <p>${product.price}</p>
             <Link to={`/product/${product.id}`}>View Details</Link>
-            <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+            <button onClick={() => handleAddToCart(product)}>
+              Add to Cart
+            </button>
           </div>
         ))}
       </div>

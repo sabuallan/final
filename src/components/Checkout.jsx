@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { useCart } from './CartContext';
+import { useState } from "react";
+import { useCart } from "./CartContext";
 
 const Checkout = () => {
   const { cartItems } = useCart();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    address: '',
+    name: "",
+    email: "",
+    address: "",
   });
   const [orderPlaced, setOrderPlaced] = useState(false);
 
@@ -21,16 +21,16 @@ const Checkout = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // For simplicity, just logging the order details.
-    console.log('Order Details:');
-    console.log('Name:', formData.name);
-    console.log('Email:', formData.email);
-    console.log('Address:', formData.address);
-    console.log('Cart Items:', cartItems);
+    console.log("Order Details:");
+    console.log("Name:", formData.name);
+    console.log("Email:", formData.email);
+    console.log("Address:", formData.address);
+    console.log("Cart Items:", cartItems);
 
     setFormData({
-      name: '',
-      email: '',
-      address: '',
+      name: "",
+      email: "",
+      address: "",
     });
 
     // Set the orderPlaced state to true

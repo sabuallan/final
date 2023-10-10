@@ -69,13 +69,13 @@ button:focus-visible {
 }
 
 .product-listing {
-  margin: auto; 
+  margin: auto;
   padding: 20px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   border: 3px solid #ddd;
   padding: 20px;
@@ -92,7 +92,7 @@ button:focus-visible {
 
 .product-card img {
   max-width: 100%;
-  height: auto; 
+  height: auto;
 }
 
 .product-card h3 {
@@ -124,7 +124,7 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   .product-card {
-    width: 50%; /* 2 cards in a row on smaller screens */
+    width: 50%;
   }
 }
 .filter-dropdown {

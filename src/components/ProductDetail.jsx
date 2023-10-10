@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from "react";
+import { useParams, Link } from "react-router-dom";
 import { CartContext, useCart } from "./CartContext";
-
 
 const ProductDetail = () => {
   const { productId } = useParams();
@@ -10,11 +9,13 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
+        const response = await fetch(
+          `https://fakestoreapi.com/products/${productId}`
+        );
         const data = await response.json();
         setProduct(data);
       } catch (error) {
-        console.error('Error fetching product details:', error);
+        console.error("Error fetching product details:", error);
       }
     };
 
@@ -28,7 +29,7 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     if (product) {
       addToCart(product); // Assuming addToCart is a function in your cart context
-      alert('Product added to cart');
+      alert("Product added to cart");
     }
   };
 
@@ -36,7 +37,10 @@ const ProductDetail = () => {
     <div className="product-detail">
       {product ? (
         <>
-          <img src={product.image} alt={product.title} />
+          <img
+            src={product.image}
+            alt={product.title}
+          />
           <h2>{product.title}</h2>
           <p>{product.description}</p>
           <p>Price: ${product.price}</p>

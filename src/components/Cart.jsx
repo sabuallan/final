@@ -7,7 +7,7 @@ const Cart = () => {
   const Navigate = useNavigate();
 
   const handleProceedToCheckout = () => {
-    Navigate('/checkout');
+    Navigate("/checkout");
   };
 
   const calculateTotal = (items) => {
@@ -34,7 +34,9 @@ const Cart = () => {
             {cartItems.map((item) => (
               <li key={item.id}>
                 {item.title} - ${item.price} (Quantity: {item.quantity})
-                <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+                <button onClick={() => handleRemoveFromCart(item.id)}>
+                  Remove
+                </button>
               </li>
             ))}
           </ul>
